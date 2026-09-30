@@ -23,10 +23,7 @@
         {{-- Gradient --}}
         <div
             class="absolute inset-0
-                   bg-gradient-to-b
-                   from-black/50
-                   via-black/70
-                   to-[#050505]"
+                   bg-linear-to-b from-black/30 via-black/30 to-[#050505]"
         ></div>
 
     </div>
@@ -272,120 +269,245 @@
 </section>
 
 
-    {{-- SPORTS SECTION --}}
-    <section id="sports" class="border-t border-white/10 py-24">
+{{-- SPORTS SECTION --}}
+<section
+    id="sports"
+    class="border-t border-white/10 py-24"
+>
 
-        <div class="mx-auto max-w-7xl px-6">
+    <div class="mx-auto max-w-7xl px-6">
 
-            <div class="mb-12">
 
-                <p class="text-sm font-semibold uppercase
-                           tracking-[0.3em] text-lime-400">
-                    Choose Your Sport
+        {{-- Heading --}}
+        <div
+            class="flex flex-col justify-between gap-6
+                   md:flex-row md:items-end"
+        >
+
+            <div>
+
+                <p
+                    class="text-sm font-semibold uppercase
+                           tracking-[0.3em] text-lime-400"
+                >
+                    Explore Sports
                 </p>
 
-                <h2 class="mt-3 text-4xl font-bold sm:text-5xl">
-                    What do you want to play?
+                <h2
+                    class="mt-3 max-w-xl text-4xl font-black
+                           tracking-tight sm:text-5xl"
+                >
+                    Pick your game.
+                    <span class="text-gray-500">
+                        We'll handle the rest.
+                    </span>
                 </h2>
 
             </div>
 
 
-            <div class="grid gap-5 md:grid-cols-3">
-
-
-                {{-- Football --}}
-                <div
-                    class="group rounded-3xl border border-white/10
-                           bg-white/5 p-7 backdrop-blur-xl
-                           transition duration-500
-                           hover:-translate-y-2
-                           hover:bg-white/10">
-
-                    <div class="text-5xl">
-                        ⚽
-                    </div>
-
-                    <h3 class="mt-8 text-2xl font-bold">
-                        Football
-                    </h3>
-
-                    <p class="mt-3 text-gray-400">
-                        Book your football arena
-                        and enjoy your game.
-                    </p>
-
-                    <a href="#" class="mt-8 inline-block font-semibold
-                               text-lime-400">
-                        Explore →
-                    </a>
-
-                </div>
-
-
-                {{-- Cricket --}}
-                <div
-                    class="group rounded-3xl border border-white/10
-                           bg-white/5 p-7 backdrop-blur-xl
-                           transition duration-500
-                           hover:-translate-y-2
-                           hover:bg-white/10">
-
-                    <div class="text-5xl">
-                        🏏
-                    </div>
-
-                    <h3 class="mt-8 text-2xl font-bold">
-                        Cricket
-                    </h3>
-
-                    <p class="mt-3 text-gray-400">
-                        Find and reserve your
-                        preferred cricket facility.
-                    </p>
-
-                    <a href="#" class="mt-8 inline-block font-semibold
-                               text-lime-400">
-                        Explore →
-                    </a>
-
-                </div>
-
-
-                {{-- Swimming --}}
-                <div
-                    class="group rounded-3xl border border-white/10
-                           bg-white/5 p-7 backdrop-blur-xl
-                           transition duration-500
-                           hover:-translate-y-2
-                           hover:bg-white/10">
-
-                    <div class="text-5xl">
-                        🏊
-                    </div>
-
-                    <h3 class="mt-8 text-2xl font-bold">
-                        Swimming
-                    </h3>
-
-                    <p class="mt-3 text-gray-400">
-                        Reserve a swimming session
-                        at your preferred time.
-                    </p>
-
-                    <a href="#" class="mt-8 inline-block font-semibold
-                               text-lime-400">
-                        Explore →
-                    </a>
-
-                </div>
-
-
-            </div>
+            <a
+                href="#"
+                class="font-semibold text-gray-300
+                       transition hover:text-lime-400"
+            >
+                View all facilities →
+            </a>
 
         </div>
 
-    </section>
+
+        {{-- Cards --}}
+        <div
+            class="mt-12 grid gap-5
+                   md:grid-cols-3"
+        >
+
+
+            {{-- Football --}}
+            <a
+                href="#"
+                class="group relative min-h-105
+                       overflow-hidden rounded-4xl
+                       border border-white/10"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=1200&q=80"
+                    alt="Football"
+                    class="absolute inset-0 h-full w-full
+                           object-cover
+                           transition duration-700
+                           group-hover:scale-110"
+                >
+
+                <div
+                    class="absolute inset-0
+                           bg-linear-to-t
+                           from-black via-black/30
+                           to-transparent"
+                ></div>
+
+
+                <div
+                    class="absolute bottom-0 left-0 right-0
+                           p-7"
+                >
+
+                    <span
+                        class="text-4xl"
+                    >
+                        ⚽
+                    </span>
+
+                    <h3
+                        class="mt-4 text-3xl font-black"
+                    >
+                        Football
+                    </h3>
+
+                    <p
+                        class="mt-2 text-sm text-gray-300"
+                    >
+                        Premium football arenas
+                        for your next game.
+                    </p>
+
+                    <div
+                        class="mt-6 font-semibold
+                               text-lime-400"
+                    >
+                        Explore arenas →
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            {{-- Cricket --}}
+            <a
+                href="#"
+                class="group relative min-h-105
+                       overflow-hidden rounded-4xl
+                       border border-white/10"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1200&q=80"
+                    alt="Cricket"
+                    class="absolute inset-0 h-full w-full
+                           object-cover
+                           transition duration-700
+                           group-hover:scale-110"
+                >
+
+                <div
+                    class="absolute inset-0
+                           bg-linear-to-t
+                           from-black via-black/30
+                           to-transparent"
+                ></div>
+
+
+                <div
+                    class="absolute bottom-0 left-0 right-0
+                           p-7"
+                >
+
+                    <span class="text-4xl">
+                        🏏
+                    </span>
+
+                    <h3
+                        class="mt-4 text-3xl font-black"
+                    >
+                        Cricket
+                    </h3>
+
+                    <p
+                        class="mt-2 text-sm text-gray-300"
+                    >
+                        Find the perfect cricket
+                        ground for your team.
+                    </p>
+
+                    <div
+                        class="mt-6 font-semibold
+                               text-lime-400"
+                    >
+                        Explore grounds →
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            {{-- Swimming --}}
+            <a
+                href="#"
+                class="group relative min-h-130
+                       overflow-hidden rounded-4xl
+                       border border-white/10"
+            >
+
+                <img
+                    src="https://images.unsplash.com/photo-1530549387789-4c1017266635?auto=format&fit=crop&w=1200&q=80"
+                    alt="Swimming pool"
+                    class="absolute inset-0 h-full w-full
+                           object-cover
+                           transition duration-700
+                           group-hover:scale-110"
+                >
+
+                <div
+                    class="absolute inset-0
+                           bg-linear-to-t
+                           from-black via-black/30
+                           to-transparent"
+                ></div>
+
+
+                <div
+                    class="absolute bottom-0 left-0 right-0
+                           p-7"
+                >
+
+                    <span class="text-4xl">
+                        🏊
+                    </span>
+
+                    <h3
+                        class="mt-4 text-3xl font-black"
+                    >
+                        Swimming
+                    </h3>
+
+                    <p
+                        class="mt-2 text-sm text-gray-300"
+                    >
+                        Relax, train and swim
+                        at premium pools.
+                    </p>
+
+                    <div
+                        class="mt-6 font-semibold
+                               text-lime-400"
+                    >
+                        Explore pools →
+                    </div>
+
+                </div>
+
+            </a>
+
+
+        </div>
+
+    </div>
+
+</section>
 
 
     {{-- HOW IT WORKS --}}
