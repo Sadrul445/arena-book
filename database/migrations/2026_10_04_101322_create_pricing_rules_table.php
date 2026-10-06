@@ -13,7 +13,25 @@ return new class extends Migration
     {
         Schema::create('pricing_rules', function (Blueprint $table) {
             $table->id();
+             $table->foreignId('pricing_period_id')
+                ->constrained('pricing_periods')
+                ->cascadeOnUpdate()
+                ->cascadeOnDelete();
+
+            $table->unsignedInteger('duration_minutes');
+
+            $table->decimal('price', 12, 2);
+
+            $table->string('currency', 3)->default('BDT');
+
+            $table->boolean('status')->default(true);
+
             $table->timestamps();
+
+            $table->unique([
+                'pricing_period_id',
+                'duration_minutes'
+            ]);
         });
     }
 
