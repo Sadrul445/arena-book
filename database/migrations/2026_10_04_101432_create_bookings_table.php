@@ -13,6 +13,38 @@ return new class extends Migration
     {
         Schema::create('bookings', function (Blueprint $table) {
             $table->id();
+            $table->string('booking_number', 50)->unique();
+
+            $table->foreignId('user_id')
+                ->nullable()
+                ->constrained('users')
+                ->nullOnDelete();
+
+            $table->foreignId('coupon_id')
+                ->nullable()
+                ->constrained('coupons')
+                ->nullOnDelete();
+
+            $table->date('booking_date');
+
+            $table->decimal('subtotal', 12, 2)->default(0);
+            $table->decimal('discount_amount', 12, 2)->default(0);
+            $table->decimal('tax_amount', 12, 2)->default(0);
+            $table->decimal('total_amount', 12, 2)->default(0);
+
+            $table->string('currency', 3)->default('BDT');
+
+            $table->string('status', 30)->default('pending');
+
+            // Customer snapshot
+            $table->string('customer_name', 150);
+            $table->string('customer_phone', 30);
+            $table->string('customer_email', 150)->nullable();
+
+            // Coupon snapshot
+            $table->string('coupon_code', 50)->nullable();
+
+            $table->text('notes')->nullable();
             $table->timestamps();
         });
     }
