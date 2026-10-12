@@ -19,6 +19,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ServiceCategorySeeder::class,
             FacilitySeeder::class,
+            OperatingHourSeeder::class,
+            PricingSeeder::class,
         ]);
         // User::factory()->create([
         //     'name' => 'Test User',
