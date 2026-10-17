@@ -10,10 +10,11 @@ use App\Models\Booking;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Validation\ValidationException;
+use App\Services\PricingService;
 
 class AvailabilityController extends Controller
 {
-    public function check(Request $request, Facility $facility)
+    public function check(Request $request, Facility $facility, PricingService $pricingService)
     {
         $data = $request->validate([
             'booking_date' => ['required', 'date', 'after_or_equal:today'],
@@ -61,7 +62,7 @@ class AvailabilityController extends Controller
                 $query->whereNull('start_time')
                     ->orWhere(function ($q) use ($data, $end) {
                         $q->where('start_time', '<', $end->format('H:i:s'))
-                          ->where('end_time', '>', $data['start_time']);
+                            ->where('end_time', '>', $data['start_time']);
                     });
             })
             ->exists();
@@ -98,9 +99,20 @@ class AvailabilityController extends Controller
             }
         }
 
-        return back()->with(
-            'availability_success',
-            'Facility উপলভ্য! এখন মূল্য যাচাই করে Booking এগিয়ে নেওয়া যাবে।'
+        $quote = $pricingService->quote(
+            $facility,
+            $data['booking_date'],
+            $data['start_time'],
+            (int) $data['duration_minutes'],
+            (int) $data['quantity']
         );
-    }   
+
+        return back()
+            ->with('availability_quote', $quote)
+            ->with('availability_facility_id', $facility->id)
+            ->with(
+                'availability_success',
+                'Facility উপলভ্য! নিচে আপনার Booking-এর মূল্য দেখুন।'
+            );
+    }
 }

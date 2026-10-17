@@ -28,7 +28,7 @@
                 </a>
 
                 <a
-                    href="#facilities"
+                    href="{{ route('facilities.index') }}"
                     class="text-sm text-gray-300 transition hover:text-white"
                 >
                     Facilities
